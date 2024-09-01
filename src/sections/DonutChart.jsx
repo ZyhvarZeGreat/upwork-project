@@ -44,11 +44,11 @@ export function DonutChart() {
     }, [])
 
     return (
-        <Card className="flex border-none font-graphik items-center justify-center px-12 w-1/2 flex-col">
+        <Card className="flex border-none py-16 overflow-hidden font-graphik items-center justify-center px-12 w-1/2 flex-col">
             <CardContent className="flex-1 p-0">
                 <ChartContainer
                     config={chartConfig}
-                    className="mx-auto p-0 w-full h-[90%]"
+                    className="mx-auto px-12  h-[90%]"
                 >
                     <PieChart className="p-0">
                         <ChartTooltip
@@ -59,7 +59,7 @@ export function DonutChart() {
                             data={chartData2}
                             dataKey="value"
                             nameKey="label"
-                            innerRadius={210}
+                            innerRadius={200}
                             strokeWidth={3}
                         >
                             <Label
@@ -74,16 +74,16 @@ export function DonutChart() {
                                             >
                                                 <tspan
                                                     x={viewBox.cx}
-                                                    y={viewBox.cy}
-                                                    className="fill-foreground text-xl font-bold"
+                                                    y={viewBox.cy - 26}
+                                                    className="fill-foreground text-xl font-medium"
                                                 >
                                                     Your Prompt is
                                                 </tspan>
                                                 <tspan
                                                     x={viewBox.cx}
-                                                    y={(viewBox.cy || 0) + 54}
+                                                    y={(viewBox.cy || 0) + 24}
                                                     style={{ marginTop: '2rem' }}
-                                                    className="fill-[#ED525E] text-6xl"
+                                                    className="fill-[#ED525E] font-semibold text-6xl"
                                                 >
                                                     {chartData2[0].value}% biased
                                                 </tspan>
@@ -97,13 +97,13 @@ export function DonutChart() {
                 </ChartContainer>
             </CardContent>
             <CardFooter className="flex-col w-full gap-2 text-sm">
-                <div className="flex py-8 w-full gap-2 flex-col">
+                <div className="flex  w-full gap-2 flex-col">
                     <p className="font-semibold text-2xl">
                         Enter your Prompt
                     </p>
                     <div className="flex items-center gap-4">
 
-                        <Input placeholder='Enter your Prompt' className='border h-16 rounded-sm shadow-sm border-black' />
+                        <Input placeholder='Enter your Prompt' className='border h-16 rounded-md shadow-sm border-black' />
                         <Button className='rounded-full w-14 h-14'>
                             <ChevronRight className="h-8 w-8" />
                         </Button>
