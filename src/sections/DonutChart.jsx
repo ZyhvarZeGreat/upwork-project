@@ -44,11 +44,11 @@ export function DonutChart() {
     }, [])
 
     return (
-        <Card className="flex border-none font-graphik justify-center px-8 w-1/2 flex-col">
+        <Card className="flex border-none font-graphik items-center justify-center px-12 w-1/2 flex-col">
             <CardContent className="flex-1 p-0">
                 <ChartContainer
                     config={chartConfig}
-                    className="mx-auto p-0 w-full h-[85%]"
+                    className="mx-auto p-0 w-full h-[90%]"
                 >
                     <PieChart className="p-0">
                         <ChartTooltip
