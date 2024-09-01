@@ -39,9 +39,9 @@ export function BubbleChart() {
 
         // Create simulation with forces
         const simulation = d3.forceSimulation(bubbleData)
-            .force("charge", d3.forceManyBody().strength(5))
+            .force("charge", d3.forceManyBody().strength(-7))
             .force("center", d3.forceCenter(width / 2, height / 2))
-            .force("collision", d3.forceCollide(d => radiusScale(d.score) + 5))
+            .force("collision", d3.forceCollide(d => radiusScale(d.score) * 0.9))
             .on("tick", ticked)
 
         // Create and append circles
@@ -91,7 +91,7 @@ export function BubbleChart() {
                     <div className=" h-4 w-4 rounded-full bg-[#66A352]"><p className="hidden">s</p></div> Unbiased
                 </div>
             </div>
-            <CardContent className="w-auto flex-col  p-0 font-graphik overflow-x-scroll h-full flex justify-center items-center">
+            <CardContent className="w-auto flex-col  p-0 font-graphik  h-full flex justify-center items-center">
 
                 <svg ref={chartRef} className="w-full h-full"></svg>
             </CardContent>
