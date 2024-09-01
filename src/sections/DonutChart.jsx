@@ -44,7 +44,7 @@ export function DonutChart() {
     }, [])
 
     return (
-        <Card className="flex font-graphik justify-center px-8 w-1/2 flex-col">
+        <Card className="flex border-none font-graphik justify-center px-8 w-1/2 flex-col">
             <CardContent className="flex-1 p-0">
                 <ChartContainer
                     config={chartConfig}

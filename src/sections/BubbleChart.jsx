@@ -82,7 +82,7 @@ export function BubbleChart() {
     }, [])
 
     return (
-        <Card className="w-full relative bg-[url(assets/bg.png)] p-0 lg:w-1/2 h-screen ">
+        <Card className="w-full border-none relative bg-[url(assets/bg.png)] p-0 lg:w-1/2 h-screen ">
             <div className="text-white font-graphik absolute z-50 w-full px-12 py-12">
                 <div className="flex  items-center gap-2">
                     <div className="w-4 h-4 rounded-full bg-[#ED525E]"><p className="hidden">s</p></div> Biased
