@@ -80,6 +80,8 @@ export function DonutChart({ data, payload, setPayload }) {
                             nameKey="label"
                             innerRadius={200}
                             strokeWidth={3}
+                            paddingAngle={2}
+                            cornerRadius={3}
                         >
                             <Label
                                 content={({ viewBox }) => {
@@ -102,9 +104,9 @@ export function DonutChart({ data, payload, setPayload }) {
                                                     x={viewBox.cx}
                                                     y={(viewBox.cy || 0) + 24}
                                                     style={{ marginTop: '2rem' }}
-                                                    className="fill-[#ED525E] font-semibold text-6xl"
+                                                    className="fill-[#ED525E] font-semibold text-5xl"
                                                 >
-                                                    {chartData2[0].value}% biased
+                                                    {(chartData2[0].value).toFixed(2)}% biased
                                                 </tspan>
                                             </text>
                                         )
