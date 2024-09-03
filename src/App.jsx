@@ -7,7 +7,7 @@ function App() {
   const [data, setData] = useState(chartData.body[0]);
   const [bubbleChartData, setBubbleChartData] = useState()
   const [payload, setPayload] = useState(null);
-  const url = 'https://s5c3butdxpd62qaq7g35v26uk40gswlj.lambda-url.us-east-1.on.aws';
+  const url = 'api/';
 
   useEffect(() => {
     const fetchData = async () => {
