@@ -5,11 +5,15 @@ import * as d3 from "d3"
 import { Card, CardContent } from "@/components/ui/card"
 import { chartData } from "../../sample_response"
 
-export function BubbleChart() {
+// eslint-disable-next-line react/prop-types
+export function BubbleChart({ data }) {
+
     const chartRef = useRef(null)
     const [tooltip, setTooltip] = useState({ text: "", x: 0, y: 0, visible: false })
 
     useEffect(() => {
+        if (!data) return
+        console.log(data)
         const width = chartRef.current.clientWidth
         const height = chartRef.current.clientHeight || 500
 
@@ -36,7 +40,7 @@ export function BubbleChart() {
             .range([10, 100])
 
         // Create simulation with forces
-        const simulation = d3.forceSimulation(bubbleData)
+        const simulation = d3.forceSimulation(data)
             .force("charge", d3.forceManyBody().strength(-7))
             .force("center", d3.forceCenter(width / 2, height / 2))
             .force("collision", d3.forceCollide(d => radiusScale(d.score) * 0.9))
@@ -44,7 +48,7 @@ export function BubbleChart() {
 
         // Create and append circles
         const nodes = svg.selectAll("circle")
-            .data(bubbleData)
+            .data(data)
             .enter()
             .append("circle")
             .attr("r", d => radiusScale(d.score))
@@ -75,7 +79,7 @@ export function BubbleChart() {
 
         // Create and append labels
         const labels = svg.selectAll("text")
-            .data(bubbleData)
+            .data(data)
             .enter()
             .append("text")
             .attr("dy", ".3em")
@@ -98,7 +102,7 @@ export function BubbleChart() {
             // Cleanup simulation on component unmount
             simulation.stop()
         }
-    }, [])
+    }, [data])
 
     return (
         <Card className="w-full border-none relative bg-[url(assets/bg.png)] p-0 lg:w-1/2 h-screen ">

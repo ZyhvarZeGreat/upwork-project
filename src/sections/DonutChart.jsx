@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 "use client"
 
 import * as React from "react"
@@ -22,10 +23,7 @@ import {
 // const chartDataReal = chartData.body.map((data)=>{
 //     return {data?.percentage_biased,data?.}
 // })
-const chartData2 = [
-    { label: "Biased", value: 70, fill: "#ED525E" },
-    { label: "Unbiased", value: 30, fill: "#66A352" }, // Single Entry
-]
+
 
 const chartConfig = {
     biased: {
@@ -38,11 +36,32 @@ const chartConfig = {
     },
 }
 
-export function DonutChart() {
+export function DonutChart({ data, payload, setPayload }) {
+
+    const chartData2 = [
+        { label: "Biased", value: data?.percentage_biased, fill: "#ED525E" },
+        { label: "Unbiased", value: data?.percentage_nonbiased, fill: "#66A352" }, // Single Entry
+    ]
+
     const totalValue = React.useMemo(() => {
         return chartData2.reduce((acc, curr) => acc + curr.value, 0)
     }, [])
+    const [inputValue, setInputValue] = React.useState('');
 
+    // Function to handle the input change
+    const handleInputChange = (e) => {
+        setInputValue({
+            "text": [e.target.value]
+        });
+    };
+
+    // Function to handle the button click
+    const handleSubmit = () => {
+        // Handle the submission here
+        console.log('Submitted Value:', inputValue);
+        setPayload(inputValue)
+        // You can also call an API or perform other actions here
+    };
     return (
         <Card className="flex border-none py-16 overflow-hidden font-graphik items-center justify-center px-12 w-1/2 flex-col">
             <CardContent className="flex-1 p-0">
@@ -103,8 +122,10 @@ export function DonutChart() {
                     </p>
                     <div className="flex items-center gap-4">
 
-                        <Input placeholder='Enter your Prompt' className='border h-16 rounded-md shadow-sm border-black' />
-                        <Button className='rounded-full w-14 h-14'>
+                        <Input onChange={(e) => { handleInputChange(e) }} placeholder='Enter your Prompt' className='border h-16 rounded-md shadow-sm border-black' />
+                        <Button onClick={() => {
+                            handleSubmit()
+                        }} className='rounded-full w-14 h-14'>
                             <ChevronRight className="h-8 w-8" />
                         </Button>
                     </div>
