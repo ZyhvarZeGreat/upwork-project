@@ -63,7 +63,7 @@ export function DonutChart({ data, payload, setPayload }) {
         // You can also call an API or perform other actions here
     };
     return (
-        <Card className="flex border-none py-16 overflow-hidden font-graphik items-center justify-center px-12 w-1/2 flex-col">
+        <Card className="flex  border-none py-16 overflow-hidden font-graphik items-center justify-center px-12 w-1/2 flex-col">
             <CardContent className="flex-1 p-0">
                 <ChartContainer
                     config={chartConfig}

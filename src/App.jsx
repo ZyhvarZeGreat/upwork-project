@@ -7,8 +7,8 @@ function App() {
   const [data, setData] = useState(chartData.body[0]);
   const [bubbleChartData, setBubbleChartData] = useState()
   const [payload, setPayload] = useState(null);
-  const url = 'api/';
-
+  const url = import.meta.env.MODE === 'development' ? 'api/' : 'https://s5c3butdxpd62qaq7g35v26uk40gswlj.lambda-url.us-east-1.on.aws';
+  console.log(import.meta.env.MODE, url)
   useEffect(() => {
     const fetchData = async () => {
       try {

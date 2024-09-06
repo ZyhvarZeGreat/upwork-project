@@ -8,6 +8,7 @@ export default defineConfig({
       '/api': {
         target: 'https://s5c3butdxpd62qaq7g35v26uk40gswlj.lambda-url.us-east-1.on.aws',
         changeOrigin: true,
+        secure: false,
         rewrite: path => path.replace(/^\/api/, '')
       }
     }

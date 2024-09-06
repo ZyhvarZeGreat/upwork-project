@@ -41,7 +41,7 @@ export function BubbleChart({ data }) {
 
         // Create simulation with forces
         const simulation = d3.forceSimulation(data)
-            .force("charge", d3.forceManyBody().strength(-7))
+            .force("charge", d3.forceManyBody().strength(4))
             .force("center", d3.forceCenter(width / 2, height / 2))
             .force("collision", d3.forceCollide(d => radiusScale(d.score) * 0.9))
             .on("tick", ticked)
