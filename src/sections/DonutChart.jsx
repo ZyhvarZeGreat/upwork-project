@@ -39,8 +39,8 @@ const chartConfig = {
 export function DonutChart({ data, payload, setPayload }) {
 
     const chartData2 = [
-        { label: "Biased", value: data?.percentage_biased, fill: "#ED525E" },
-        { label: "Unbiased", value: data?.percentage_nonbiased, fill: "#66A352" }, // Single Entry
+        { label: "Biased", value: data?.percentage_biased, fill: "#D24781" },
+        { label: "Unbiased", value: data?.percentage_nonbiased, fill: "#96939C" }, // Single Entry
     ]
 
     const totalValue = React.useMemo(() => {
