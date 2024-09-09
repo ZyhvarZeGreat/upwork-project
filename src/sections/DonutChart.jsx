@@ -64,6 +64,11 @@ export function DonutChart({ data, payload, setPayload }) {
     };
     return (
         <Card className="flex  border-none py-16 overflow-hidden font-graphik items-center justify-center px-12 w-1/2 flex-col">
+            <div>
+                <h3 className="text-4xl font-semibold">
+                    Responsible AI Bias Detector
+                </h3>
+            </div>
             <CardContent className="flex-1 p-0">
                 <ChartContainer
                     config={chartConfig}

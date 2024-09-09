@@ -57,7 +57,8 @@ export function BubbleChart({ data }) {
             .attr("stroke-width", 2)
             .on("mouseover", (event, d) => {
                 setTooltip({
-                    text: `${d.keyword}: ${d.score.toFixed(2)}`,
+                    label: `${d.keyword}`,
+                    score: `${d.score.toFixed(2)}`,
                     x: event.pageX,
                     y: event.pageY,
                     visible: true
@@ -86,7 +87,8 @@ export function BubbleChart({ data }) {
             .style("text-anchor", "middle")
             .style("fill", "#fff")
             .style("font-size", "16px")
-            .text(d => d.keyword)
+            .text(d => (d.keyword))
+
 
         function ticked() {
             nodes
@@ -108,10 +110,7 @@ export function BubbleChart({ data }) {
         <Card className="w-full border-none relative bg-[url(assets/bg.png)] p-0 lg:w-1/2 h-screen ">
             <div className="text-white font-graphik absolute z-50 w-full px-12 py-12">
                 <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 rounded-full bg-[#ED525E]"><p className="hidden">s</p></div> Biased
-                </div>
-                <div className="flex items-center gap-2">
-                    <div className="h-4 w-4 rounded-full bg-[#66A352]"><p className="hidden">s</p></div> Unbiased
+                    <img src={'/public/bubble-img2.png'} className="h-14 object-contain" />
                 </div>
             </div>
             <CardContent className="w-auto flex-col p-0 font-graphik h-full flex justify-center items-center">
@@ -123,7 +122,11 @@ export function BubbleChart({ data }) {
                             style={{ top: tooltip.y + 10, left: tooltip.x + 10 }}
                         >
                             <p className="font-bold text-xl"> Title</p>
-                            {tooltip.text}
+                            <div className="flex flex-col">
+                                <p className="text-lg "><span className="font-semibold">label:</span>{tooltip.label}</p>
+                                <p className="text-lg "><span className="font-semibold">score:</span>  {tooltip.score}</p>
+                            </div>
+
                             <a href="#">Link</a>
                         </div>
                     )}
