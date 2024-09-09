@@ -82,8 +82,9 @@ export function DonutChart({ data, payload, setPayload }) {
                         <Pie
                             data={chartData2}
                             dataKey="value"
+                            className="border border-white"
                             nameKey="label"
-                            innerRadius={200}
+                            innerRadius={190}
                             strokeWidth={3}
                             paddingAngle={2}
                             cornerRadius={3}
