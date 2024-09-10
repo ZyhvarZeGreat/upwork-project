@@ -30,8 +30,9 @@ export function BubbleChart({ data }) {
             item.lemmatized.map(keyword => ({
                 label: keyword.label,
                 score: keyword.score,
-                keyword: keyword.keyword
+
             }))
+
         )
 
         // Set up a scale for the bubble sizes
@@ -57,7 +58,7 @@ export function BubbleChart({ data }) {
             .attr("stroke-width", 2)
             .on("mouseover", (event, d) => {
                 setTooltip({
-                    label: `${d.keyword}`,
+                    label: `${d.label}`,
                     score: `${d.score.toFixed(2)}`,
                     x: event.pageX,
                     y: event.pageY,
@@ -104,13 +105,14 @@ export function BubbleChart({ data }) {
             // Cleanup simulation on component unmount
             simulation.stop()
         }
+
     }, [data])
 
     return (
         <Card className="w-full border-none relative bg-[url(assets/bg.png)] p-0 lg:w-1/2 h-screen ">
             <div className="text-white font-graphik absolute z-50 w-full px-12 py-12">
                 <div className="flex items-center gap-2">
-                    <img src={'/public/bubble-img2.png'} className="h-14 object-contain" />
+                    <img src={'https://tabodozo.sirv.com/bubble-img2.png'} className="h-14 object-contain" />
                 </div>
             </div>
             <CardContent className="w-auto flex-col p-0 font-graphik h-full flex justify-center items-center">
