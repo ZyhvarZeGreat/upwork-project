@@ -48,7 +48,7 @@ function App() {
 
   return (
     <div className='bg-red-50 flex h-screen w-screen'>
-      <BubbleChart data={bubbleChartData} />
+      <BubbleChart data={bubbleChartData} classification={data.bias_classification} />
       <DonutChart data={data} payload={payload} setPayload={setPayload} />
     </div>
   );
