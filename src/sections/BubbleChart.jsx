@@ -115,7 +115,7 @@ export function BubbleChart({ data, classification }) {
                     <img src={'https://tabodozo.sirv.com/bubble-img2.png'} className="h-14 object-contain" />
                 </div>
                 <div className="text-xl flex flex-col">
-                    <p>Your prompt is {classification?.label}</p>
+                    <p>Overall label: {classification?.label}</p>
                     <p>score: {classification?.score?.toFixed(2)}</p> </div>
             </div>
             <CardContent className="w-auto flex-col p-0 font-graphik h-full flex justify-center items-center">
