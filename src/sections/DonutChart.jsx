@@ -125,12 +125,10 @@ export function DonutChart({ data, payload, setPayload }) {
             </CardContent>
             <CardFooter className="flex-col w-full gap-2 text-sm">
                 <div className="flex  w-full gap-2 flex-col">
-                    <p className="font-semibold text-2xl">
-                        Enter your Prompt
-                    </p>
+
                     <div className="flex items-center gap-4">
 
-                        <Input onChange={(e) => { handleInputChange(e) }} placeholder='Enter your Prompt' className='border h-16 rounded-md shadow-sm border-black' />
+                        <Input onChange={(e) => { handleInputChange(e) }} placeholder='Enter your Prompt' className='border h-20 rounded-md shadow-sm border-black' />
                         <Button onClick={() => {
                             handleSubmit()
                         }} className='rounded-full w-14 h-14'>

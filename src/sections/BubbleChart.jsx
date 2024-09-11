@@ -110,10 +110,13 @@ export function BubbleChart({ data }) {
 
     return (
         <Card className="w-full border-none relative bg-[url(assets/bg.png)] p-0 lg:w-1/2 h-screen ">
-            <div className="text-white font-graphik absolute z-50 w-full px-12 py-12">
+            <div className="text-white font-graphik flex absolute z-50 w-full items-center justify-between px-12 py-12">
                 <div className="flex items-center gap-2">
                     <img src={'https://tabodozo.sirv.com/bubble-img2.png'} className="h-14 object-contain" />
                 </div>
+                <div className="bg-red-500 text-2xl flex flex-col">
+                    <p>Your prompt is {data?.label}</p>
+                    <p>score: {data?.score}</p> </div>
             </div>
             <CardContent className="w-auto flex-col p-0 font-graphik h-full flex justify-center items-center">
                 <div className="relative w-full h-full">
