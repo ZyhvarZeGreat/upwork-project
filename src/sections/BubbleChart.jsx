@@ -116,7 +116,8 @@ export function BubbleChart({ data, classification }) {
                 </div>
                 <div className="text-xl flex flex-col">
                     {classification && <p>Overall label: {classification?.label}</p>}
-                    {classification && <p>score: {classification?.score?.toFixed(2)}</p> </div>}
+                    {classification && <p>score: {classification?.score?.toFixed(2)}</p>}
+                </div>
             </div>
             <CardContent className="w-auto flex-col p-0 font-graphik h-full flex justify-center items-center">
                 <div className="relative w-full h-full">
