@@ -7,6 +7,7 @@ function App() {
   const [data, setData] = useState(chartData.body[0]);
   const [bubbleChartData, setBubbleChartData] = useState()
   const [payload, setPayload] = useState(null);
+  const [isStatic, setIsStatic] = useState(true);
   const url = import.meta.env.MODE === 'development' ? 'api/' : 'https://s5c3butdxpd62qaq7g35v26uk40gswlj.lambda-url.us-east-1.on.aws';
   console.log(import.meta.env.MODE, url)
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
         console.log(response.data)
         const result = response.data[0]
         setData(result);
+        setIsStatic(false)
         console.log(result)
         const bubbleData = response.data.flatMap(item =>
           item.lemmatized.map(keyword => ({
@@ -49,7 +51,7 @@ function App() {
   return (
     <div className='bg-red-50 flex h-screen w-screen'>
       <BubbleChart data={bubbleChartData} classification={data.bias_classification} />
-      <DonutChart data={data} payload={payload} setPayload={setPayload} />
+      <DonutChart isStatic={isStatic} data={data} payload={payload} setPayload={setPayload} />
     </div>
   );
 }

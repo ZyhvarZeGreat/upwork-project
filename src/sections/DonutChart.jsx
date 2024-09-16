@@ -36,7 +36,7 @@ const chartConfig = {
     },
 }
 
-export function DonutChart({ data, payload, setPayload }) {
+export function DonutChart({ data, payload, setPayload, isStatic }) {
 
     const chartData2 = [
         { label: "Biased", value: data?.percentage_biased, fill: "#D24781" },
@@ -104,7 +104,7 @@ export function DonutChart({ data, payload, setPayload }) {
                                                     y={viewBox.cy - 26}
                                                     className="fill-foreground text-xl font-medium"
                                                 >
-                                                    Your Prompt is
+                                                    {!isStatic ? ' Your Prompt is' : ''}
                                                 </tspan>
                                                 <tspan
                                                     x={viewBox.cx}
@@ -112,7 +112,7 @@ export function DonutChart({ data, payload, setPayload }) {
                                                     style={{ marginTop: '2rem' }}
                                                     className="fill-[#ED525E] font-semibold text-5xl"
                                                 >
-                                                    {(chartData2[0].value).toFixed(2)}% biased
+                                                    {!isStatic ? (chartData2[0].value).toFixed(2) : '0.00 '} % biased
                                                 </tspan>
                                             </text>
                                         )
