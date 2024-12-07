@@ -8,10 +8,11 @@ function App() {
   const [bubbleChartData, setBubbleChartData] = useState()
   const [payload, setPayload] = useState(null);
   const [isStatic, setIsStatic] = useState(true);
-  const url = import.meta.env.MODE === 'development' ? 'api/' : 'https://s5c3butdxpd62qaq7g35v26uk40gswlj.lambda-url.us-east-1.on.aws';
+  const url = import.meta.env.MODE === 'development' ? 'api/' : 'https://saei4yhgnxaxqtdhgyym3mzo3m0kdhaa.lambda-url.us-east-1.on.aws/';
+  const bubbleUrl = import.meta.env.MODE === 'development' ? 'bubble/' : 'https://s5c3butdxpd62qaq7g35v26uk40gswlj.lambda-url.us-east-1.on.aws/';
   console.log(import.meta.env.MODE, url)
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchChartData = async () => {
       try {
         const response = await axios.post(url, payload, {
           headers: {
@@ -24,6 +25,21 @@ function App() {
         setData(result);
         setIsStatic(false)
         console.log(result)
+
+      } catch (err) {
+        console.error('Network error:', err.message);
+        console.error('Error details:', err);
+      }
+    };
+    const fetchBubbleData = async () => {
+      try {
+        const response = await axios.post(bubbleUrl, payload, {
+          headers: {
+            'Content-Type': 'application/json', // Ensure proper headers are set
+          },
+        });
+        console.log('Response data:', response.data);
+        console.log(response.data)
         const bubbleData = response.data.flatMap(item =>
           item.lemmatized.map(keyword => ({
             label: keyword.label,
@@ -42,7 +58,8 @@ function App() {
     if (payload) {
       console.log('Payload:', JSON.stringify(payload, null, 2)); // Log the payload being sent
       setTimeout(() => {
-        fetchData();
+        fetchChartData();
+        fetchBubbleData();
       }, 2000);
     }
   }, [payload]);

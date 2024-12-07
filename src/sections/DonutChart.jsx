@@ -37,15 +37,18 @@ const chartConfig = {
 }
 
 export function DonutChart({ data, payload, setPayload, isStatic }) {
-
-    const chartData2 = [
+    console.log(data)
+    const chartData2 = data?.percentage_biased ? [
         { label: "Biased", value: data?.percentage_biased, fill: "#D24781" },
         { label: "Unbiased", value: data?.percentage_nonbiased, fill: "#96939C" }, // Single Entry
+    ] : [
+        { label: "Biased", value: Number((data?.score * 100).toFixed()), fill: "#D24781" },
+        { label: "Unbiased", value: Number(((1 - data?.score) * 100).toFixed()), fill: "#96939C" }, // Single Entry
     ]
 
-    const totalValue = React.useMemo(() => {
-        return chartData2.reduce((acc, curr) => acc + curr.value, 0)
-    }, [])
+
+    console.log(chartData2)
+
     const [inputValue, setInputValue] = React.useState('');
 
     // Function to handle the input change
@@ -84,7 +87,7 @@ export function DonutChart({ data, payload, setPayload, isStatic }) {
                             dataKey="value"
                             className="border border-white"
                             nameKey="label"
-                            innerRadius={190}
+                            innerRadius={220}
                             strokeWidth={3}
                             paddingAngle={2}
                             cornerRadius={3}
@@ -122,7 +125,13 @@ export function DonutChart({ data, payload, setPayload, isStatic }) {
                         </Pie>
                     </PieChart>
                 </ChartContainer>
+                <div className="flex items-center w-[60%] mx-auto gap-4">
+                    <p className="text-md text-center">
+                        {data?.explanation ? data?.explanation : "No explanation provided"}
+                    </p>
+                </div>
             </CardContent>
+
             <CardFooter className="flex-col w-full gap-2 text-sm">
                 <div className="flex  w-full gap-2 flex-col">
 
