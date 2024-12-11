@@ -30,7 +30,7 @@ export function BubbleChart({ data }) {
 
         // Create SVG container
         const svg = d3.select(chartRef.current)
-            .attr("width", width)
+            .attr("width", width * 0.75)
             .attr("height", height)
             .style("background-color", "transparent")
 
@@ -41,9 +41,9 @@ export function BubbleChart({ data }) {
 
         // Create simulation with forces
         const simulation = d3.forceSimulation(transformedData)
-            .force("charge", d3.forceManyBody().strength(4)) // Negative for attraction
+            .force("charge", d3.forceManyBody().strength(-40)) // Negative for attraction
             .force("center", d3.forceCenter(width / 2, height / 2)) // Center the bubbles
-            .force("collision", d3.forceCollide(d => d.radius + 2)) // Avoid overlaps, add padding
+            .force("collision", d3.forceCollide(d => d.radius + 12)) // Avoid overlaps, add padding
             .on("tick", ticked);
 
         // Create and append circles
@@ -52,7 +52,7 @@ export function BubbleChart({ data }) {
             .enter()
             .append("circle")
             .attr("r", radiusScale(0.9))
-            .attr("fill", d => d.label === "Biased" ? "#ED525E" : "#66A352")
+            .attr("fill", "#ED525E")
             .attr("stroke", "transparent")
             .attr("stroke-width", 2)
             .on("mouseover", (event, d) => {
@@ -120,7 +120,7 @@ export function BubbleChart({ data }) {
             </div>
             <CardContent className="w-auto flex-col p-0 font-graphik h-full flex justify-center items-center">
                 <div className="relative w-full h-full">
-                    <svg ref={chartRef} className="w-full bg-blue-500 h-full"></svg>
+                    <svg ref={chartRef} className="w-full h-full"></svg>
                     {tooltip.visible && (
                         <div
                             className="absolute bg-white flex flex-col gap-1 text-gray-800 text-xs py-6 px-2 w-[13rem] rounded shadow-lg"

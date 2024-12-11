@@ -72,7 +72,7 @@ export function DonutChart({ data, payload, setPayload, isStatic }) {
                     Responsible AI Bias Detector
                 </h3>
             </div>
-            <CardContent className="flex-1 p-0">
+            <CardContent className="flex-1  h-[60%] p-0">
                 <ChartContainer
                     config={chartConfig}
                     className="mx-auto px-12  h-[90%]"
@@ -125,11 +125,7 @@ export function DonutChart({ data, payload, setPayload, isStatic }) {
                         </Pie>
                     </PieChart>
                 </ChartContainer>
-                <div className="flex items-center w-[60%] mx-auto gap-4">
-                    <p className="text-md text-center">
-                        {data?.explanation ? data?.explanation : "No explanation provided"}
-                    </p>
-                </div>
+
             </CardContent>
 
             <CardFooter className="flex-col w-full gap-2 text-sm">
@@ -145,7 +141,13 @@ export function DonutChart({ data, payload, setPayload, isStatic }) {
                         </Button>
                     </div>
                 </div>
+                <div className="flex items-center w-[60%] mx-auto gap-4">
+                    <p className="text-md text-center">
+                        {data?.explanation ? data?.explanation : "No explanation provided"}
+                    </p>
+                </div>
             </CardFooter>
+
         </Card>
     )
 }

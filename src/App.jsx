@@ -8,8 +8,8 @@ function App() {
   const [bubbleChartData, setBubbleChartData] = useState()
   const [payload, setPayload] = useState(null);
   const [isStatic, setIsStatic] = useState(true);
-  const url = import.meta.env.MODE === 'development' ? 'api/' : 'https://saei4yhgnxaxqtdhgyym3mzo3m0kdhaa.lambda-url.us-east-1.on.aws/';
-  const bubbleUrl = 'https://saei4yhgnxaxqtdhgyym3mzo3m0kdhaa.lambda-url.us-east-1.on.aws/'
+  const url = import.meta.env.MODE === 'development' ? 'api/' : 'https://upworkproject.b-cdn.net/';
+  const bubbleUrl = 'https://upworkproject.b-cdn.net/'
 
   useEffect(() => {
     const fetchChartData = async () => {
