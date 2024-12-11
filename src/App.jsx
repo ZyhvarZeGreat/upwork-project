@@ -9,7 +9,7 @@ function App() {
   const [payload, setPayload] = useState(null);
   const [isStatic, setIsStatic] = useState(true);
   const url = import.meta.env.MODE === 'development' ? 'api/' : 'https://saei4yhgnxaxqtdhgyym3mzo3m0kdhaa.lambda-url.us-east-1.on.aws/';
-  const bubbleUrl = 'https://s5c3butdxpd62qaq7g35v26uk40gswlj.lambda-url.us-east-1.on.aws/'
+  const bubbleUrl = 'https://saei4yhgnxaxqtdhgyym3mzo3m0kdhaa.lambda-url.us-east-1.on.aws/'
 
   useEffect(() => {
     const fetchChartData = async () => {
@@ -67,7 +67,7 @@ function App() {
 
   return (
     <div className='bg-red-50 flex h-screen w-screen'>
-      <BubbleChart data={bubbleChartData} classification={data.bias_classification} />
+      {data && <BubbleChart data={data} classification={data.bias_classification} />}
       <DonutChart isStatic={isStatic} data={data} payload={payload} setPayload={setPayload} />
     </div>
   );
