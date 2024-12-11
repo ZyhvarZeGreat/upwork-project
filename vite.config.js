@@ -6,13 +6,13 @@ export default defineConfig({
   plugins: [react()], server: {
     proxy: {
       '/api': {
-        target: 'https://upworkproject.b-cdn.net/',
+        target: 'https://saei4yhgnxaxqtdhgyym3mzo3m0kdhaa.lambda-url.us-east-1.on.aws/',
         changeOrigin: true,
         secure: false,
         rewrite: path => path.replace(/^\/api/, '')
       },
       '/bubble': {
-        target: 'https://upworkproject.b-cdn.net/',
+        target: 'https://s5c3butdxpd62qaq7g35v26uk40gswlj.lambda-url.us-east-1.on.aws/',
         changeOrigin: true,
         secure: false,
         rewrite: path => path.replace(/^\/bubble/, '')
