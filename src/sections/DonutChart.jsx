@@ -54,7 +54,7 @@ export function DonutChart({ data, payload, setPayload, isStatic }) {
     // Function to handle the input change
     const handleInputChange = (e) => {
         setInputValue({
-            "text": [e.target.value]
+            "text": e.target.value
         });
     };
 
