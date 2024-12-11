@@ -141,7 +141,7 @@ export function DonutChart({ data, payload, setPayload, isStatic }) {
                         </Button>
                     </div>
                 </div>
-                <div className="flex items-center w-[60%] mx-auto gap-4">
+                <div className="flex border border-black p-6 items-center w-[60%] mx-auto gap-4">
                     <p className="text-md text-center">
                         {data?.explanation ? data?.explanation : "No explanation provided"}
                     </p>
