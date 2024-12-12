@@ -40,15 +40,7 @@ function App() {
         });
         console.log('Response data:', response.data);
         console.log(response.data)
-        const bubbleData = response.data.flatMap(item =>
-          item.lemmatized.map(keyword => ({
-            label: keyword.label,
-            score: keyword.score,
-            keyword: keyword.keyword
-          }))
-        )
-        console.log(bubbleData)
-        setBubbleChartData(bubbleData)
+
       } catch (err) {
         console.error('Network error:', err.message);
         console.error('Error details:', err);
