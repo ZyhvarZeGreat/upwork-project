@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const fetchChartData = async () => {
       try {
-        const response = await axios.post(url, payload, {
+        const response = await axios.post('/api', payload, {
           headers: {
             'Content-Type': 'application/json', // Ensure proper headers are set
           },
