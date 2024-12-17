@@ -69,7 +69,7 @@ export function DonutChart({ data, payload, setPayload, isStatic }) {
         <Card className="flex  border-none py-16 overflow-hidden font-graphik items-center justify-center px-12 w-1/2 flex-col">
             <div>
                 <h3 className="text-4xl font-semibold">
-                    Responsible AI Bias Detector
+                    Debias
                 </h3>
             </div>
             <CardContent className="flex-1  h-[60%] p-0">
@@ -87,7 +87,7 @@ export function DonutChart({ data, payload, setPayload, isStatic }) {
                             dataKey="value"
                             className="border border-white"
                             nameKey="label"
-                            innerRadius={220}
+                            innerRadius={170}
                             strokeWidth={3}
                             paddingAngle={2}
                             cornerRadius={3}
@@ -113,7 +113,7 @@ export function DonutChart({ data, payload, setPayload, isStatic }) {
                                                     x={viewBox.cx}
                                                     y={(viewBox.cy || 0) + 24}
                                                     style={{ marginTop: '2rem' }}
-                                                    className="fill-[#ED525E] font-semibold text-5xl"
+                                                    className="fill-[#ED525E] font-semibold text-3xl"
                                                 >
                                                     {!isStatic ? (chartData2[0].value).toFixed(2) : '0.00 '} % biased
                                                 </tspan>
